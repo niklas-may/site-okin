@@ -2,10 +2,10 @@ require('dotenv').config({path: "./.env"})
 
 module.exports = {
   siteMetadata: {
-    siteName: `Gatsby Starter Dropbox Workflow`,
-    description: `Build your site from data hosted on Dropbox. Deploy new content with drag-and-drop, directly from your file system.`,
-    author: `Niklas May <hello@niklas-may.de>`,
-    keywords: ['Gatsby', 'Dropbox', 'Netlify', 'Starter',]
+    siteName: `okin studio`,
+    description: `okin studio is a multidisciplinary design studio based in Munich.`,
+    author: `okin studio <info@okin.studio>`,
+    keywords: ['Architekt', 'Design', 'Schreiner', 'Innenausbau']
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

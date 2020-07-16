@@ -52,13 +52,11 @@ const Layout = ({ children, title, nav, className }) => {
         description={description}
         author={author}
         ogImage={src}
-        lang="en"
+        lang="de"
       />
       <main className={className} >
-        {/* <Header siteTitle={siteName} nav={nav} /> */}
         {children}
       </main>
-      {/* <script src={webflow} /> */}
     </div>
   )
 }

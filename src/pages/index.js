@@ -7,6 +7,10 @@ import ProjectSection from "../components/ProjectSection"
 const IndexPage = ({data}) => {
   const { projects } = data.allDropboxFolder
 
+  const projectsFiltered = projects.map(project => project.nodes[0])
+  .filter(project => project.dropboxImage && project.dropboxMarkdown)
+  .sort((a, b) => b.name < a.name ? -1 : 1)
+
   return(
     <Layout className="" title="">
       <div>
@@ -17,7 +21,7 @@ const IndexPage = ({data}) => {
         <div id="footer" className="footer">
           <div className="text-block-3"><a href="#Logo" className="home-link">okin studio</a>, Landshuter Allee 35, 80637 Munich, <a href="mailto:info@okin.studio" className="footer-link">info@okin.studio</a>, <a href="https://www.instagram.com/okin_studio/" target="_blank" rel="noopener noreferrer" className="footer-link">instagram</a></div>
         </div>
-        <ProjectSection projects={projects} />
+        <ProjectSection projects={projectsFiltered} />
         <div className="about">
           <div className="tagline">
             <div className="tagline-about">Info</div>
@@ -40,7 +44,7 @@ export default IndexPage
 
 export const query = graphql`
   query HomePageQuery {
-    allDropboxFolder(filter: {name: {regex: "/project/"}}) {
+    allDropboxFolder(filter: {name: {regex: "/Project/"}}) {
       projects: group(field: id) {
         nodes {
           name
@@ -54,6 +58,7 @@ export const query = graphql`
                   type
                   year
                 }
+                html
               }
             }
           }
@@ -61,6 +66,7 @@ export const query = graphql`
             localFile {
               childImageSharp {
                 fluid {
+                  originalName
                   ...GatsbyImageSharpFluid
                 }
               }
