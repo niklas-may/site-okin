@@ -7,10 +7,11 @@ exports.handler = async (event) => {
       dropboxToken: process.env.DROPBOX_TOKEN,
       buildHook: process.env.BUILD_HOOK,
     })
+    console.log("exports.handler -> response", response)
 
     return {
       statusCode: 200,
-      body: response
+      body: JSON.stringify(response)
     }
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
