@@ -2,13 +2,10 @@ const dropboxTriggerNetlify = require('dropbox-trigger-netlify')
 
 exports.handler = async (event) => {
   try {
-
     const response = await dropboxTriggerNetlify.handleEvent(event, {
       dropboxToken: process.env.DROPBOX_TOKEN,
       buildHook: process.env.BUILD_HOOK,
     })
-    console.log("exports.handler -> response", response)
-
     return {
       statusCode: 200,
       body: response

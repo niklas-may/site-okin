@@ -49,6 +49,7 @@ const ProjectSection = ({projects}) => {
                   fluid={image.localFile.childImageSharp.fluid}
                   style={{width: `${image.localFile.childImageSharp.fluid.aspectRatio * 33}vw`, height: "33vw", display: "inline-block", marginRight: "10vw"}}
                   key={image.localFile.childImageSharp.fluid.originalName}
+                  backgroundColor="#f5bdbd"
                 />
               ))
             }

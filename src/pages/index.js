@@ -67,7 +67,7 @@ export const query = graphql`
               childImageSharp {
                 fluid {
                   originalName
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
