@@ -60,7 +60,6 @@ const ProjectSection = ({projects}) => {
 
   return (
     <div id="projects" className="projects">
-      {/* <div className="hover-image-wrapper w-clearfix"><img src="images/Bildschirmfoto-2020-02-13-um-09.10.32.png" srcSet="images/Bildschirmfoto-2020-02-13-um-09.10.32-p-500.png 500w, images/Bildschirmfoto-2020-02-13-um-09.10.32.png 560w" sizes="100vw" alt className="preview-image" /><img src="images/Bildschirmfoto-2020-02-13-um-09.10.32.png" srcSet="images/Bildschirmfoto-2020-02-13-um-09.10.32-p-500.png 500w, images/Bildschirmfoto-2020-02-13-um-09.10.32.png 560w" sizes="100vw" alt className="preview-image" /></div> */} 
       {
         projects.map(project => renderProject(project))
       }

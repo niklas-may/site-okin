@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import favicon from '../images/gatsby-icon.ico'
 
 function SEO({title, siteName, keywords, description, author, lang, ogImage}) {
 
@@ -53,7 +54,9 @@ function SEO({title, siteName, keywords, description, author, lang, ogImage}) {
           content: description,
         },
       ]}
-    />
+    >
+      <link rel="icon" href={favicon} />
+    </Helmet>
   )
 }
 
