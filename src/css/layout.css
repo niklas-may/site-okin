@@ -882,7 +882,7 @@ a:hover {
     margin-right: 5px;
     font-size: 3.5vw;
   }
-  .project-description {
+  .project-description p {
     margin-bottom: 7vw;
     font-size: 3.5vw;
   }

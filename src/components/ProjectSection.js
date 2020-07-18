@@ -1,6 +1,7 @@
 
 import React, { useState } from "react"
 import Img from "gatsby-image"
+import { useMediaQuery } from 'react-responsive'
 
 const ProjectSection = ({projects}) => {
 
@@ -17,6 +18,12 @@ const ProjectSection = ({projects}) => {
     const newSelected = name !== selected ? name : null 
     setSelected(newSelected)
   }
+
+  const isMobile = useMediaQuery({
+    query: '(max-device-width: 479px)'
+  })
+
+  const imgHeigh = isMobile ? 57 : 33;
 
   const renderProject = project => (
     <section className="project-wrapper" style={{ marginBottom: "3vw"}} key={project.name}>
@@ -40,14 +47,14 @@ const ProjectSection = ({projects}) => {
         </div>
       </div>
       </header>
-      <div className="project-content" style={{ paddingTop: "3vw", paddingLeft: "8.75vw", display: selected === project.name ? "block" : "none" }}>
+      <div className="project-content" style={{ paddingTop: "3vw", paddingLeft: isMobile ? "13vw" : "8.75vw", display: selected === project.name ? "block" : "none" }}>
         <span className="project-description" dangerouslySetInnerHTML={{__html: project.dropboxMarkdown[0].localFile.childMarkdownRemark.html}}/>
-          <div style={{display: "block", overflow: "scroll", whiteSpace: "nowrap", height: "33.5vw"}}>
+          <div style={{display: "block", overflow: "scroll", whiteSpace: "nowrap", height: `${imgHeigh * 1.05}vw`}}>
             {
               project.dropboxImage.sort((a, b) => b.localFile.childImageSharp.fluid.originalName > a.localFile.childImageSharp.fluid.originalName  ? -1 : 1).map(image => (
                 <Img
                   fluid={image.localFile.childImageSharp.fluid}
-                  style={{width: `${image.localFile.childImageSharp.fluid.aspectRatio * 33}vw`, height: "33vw", display: "inline-block", marginRight: "10vw"}}
+                  style={{width: `${image.localFile.childImageSharp.fluid.aspectRatio * imgHeigh}vw`, height: `${imgHeigh}vw`, display: "inline-block", marginRight: "10vw"}}
                   key={image.localFile.childImageSharp.fluid.originalName}
                   backgroundColor="#f5bdbd"
                 />
