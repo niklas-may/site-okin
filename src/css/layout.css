@@ -45,6 +45,7 @@ h2 {
   line-height: 36px;
   font-weight: 400;
   text-shadow: none;
+  user-select: none !important;
 }
 
 h3 {
